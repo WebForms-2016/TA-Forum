@@ -6,6 +6,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Owin;
 using ForumSystem.Models;
+using ForumSystem.Helpers;
 
 namespace ForumSystem.Account
 {

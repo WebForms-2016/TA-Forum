@@ -8,6 +8,7 @@ using Microsoft.Owin.Security.DataProtection;
 using Microsoft.Owin.Security.Google;
 using Owin;
 using ForumSystem.Models;
+using ForumSystem.Data;
 
 namespace ForumSystem
 {
@@ -17,7 +18,7 @@ namespace ForumSystem
         public void ConfigureAuth(IAppBuilder app)
         {
             // Configure the db context, user manager and signin manager to use a single instance per request
-            app.CreatePerOwinContext(ApplicationDbContext.Create);
+            app.CreatePerOwinContext(ForumSystemDbContext.Create);
             app.CreatePerOwinContext<ApplicationUserManager>(ApplicationUserManager.Create);
             app.CreatePerOwinContext<ApplicationSignInManager>(ApplicationSignInManager.Create);
 
@@ -30,7 +31,7 @@ namespace ForumSystem
                 LoginPath = new PathString("/Account/Login"),
                 Provider = new CookieAuthenticationProvider
                 {
-                    OnValidateIdentity = SecurityStampValidator.OnValidateIdentity<ApplicationUserManager, ApplicationUser>(
+                    OnValidateIdentity = SecurityStampValidator.OnValidateIdentity<ApplicationUserManager, User>(
                         validateInterval: TimeSpan.FromMinutes(30),
                         regenerateIdentity: (manager, user) => user.GenerateUserIdentityAsync(manager))
                 }
