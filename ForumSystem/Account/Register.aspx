@@ -23,7 +23,7 @@
             <div class="col-md-10">
                 <asp:TextBox runat="server" ID="FirstName" CssClass="form-control" />
                 <asp:RequiredFieldValidator runat="server" ControlToValidate="FirstName"
-                    CssClass="text-danger" ErrorMessage="First name is required." />
+                    CssClass="text-danger" ErrorMessage="First name is required. Should be betwwe 2 and 20 characters." />
             </div>
         </div>
         <div class="form-group">

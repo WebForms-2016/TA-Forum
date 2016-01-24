@@ -11,6 +11,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ForumSystem.Models", "Data\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ForumSystem.Data", "Data\ForumSystem.Data\ForumSystem.Data.csproj", "{627CE473-F461-41A5-8139-531F31BAD5E5}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{5F7E6741-64F1-412D-8D00-BCC730240FCD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ForumSystem.Services.Data", "Services\ForumSystem.Services.Data\ForumSystem.Services.Data.csproj", "{D0D92BA9-B5F0-4C29-8867-105E6242A4E4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ForumSystem.Services.Common", "Services\ForumSystem.Services.Common\ForumSystem.Services.Common.csproj", "{5E930E4B-588E-4144-AA07-CBB9F1E3EB23}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,6 +35,14 @@ Global
 		{627CE473-F461-41A5-8139-531F31BAD5E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{627CE473-F461-41A5-8139-531F31BAD5E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{627CE473-F461-41A5-8139-531F31BAD5E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0D92BA9-B5F0-4C29-8867-105E6242A4E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0D92BA9-B5F0-4C29-8867-105E6242A4E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0D92BA9-B5F0-4C29-8867-105E6242A4E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0D92BA9-B5F0-4C29-8867-105E6242A4E4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E930E4B-588E-4144-AA07-CBB9F1E3EB23}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E930E4B-588E-4144-AA07-CBB9F1E3EB23}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E930E4B-588E-4144-AA07-CBB9F1E3EB23}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E930E4B-588E-4144-AA07-CBB9F1E3EB23}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -36,5 +50,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{30BB35D3-576C-41A9-BEF9-51B69F4A7F5E} = {86B54368-D677-436D-B436-2FE21DB8A36E}
 		{627CE473-F461-41A5-8139-531F31BAD5E5} = {86B54368-D677-436D-B436-2FE21DB8A36E}
+		{D0D92BA9-B5F0-4C29-8867-105E6242A4E4} = {5F7E6741-64F1-412D-8D00-BCC730240FCD}
+		{5E930E4B-588E-4144-AA07-CBB9F1E3EB23} = {5F7E6741-64F1-412D-8D00-BCC730240FCD}
 	EndGlobalSection
 EndGlobal
