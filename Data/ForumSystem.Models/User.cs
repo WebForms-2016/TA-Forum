@@ -1,5 +1,6 @@
 ﻿namespace ForumSystem.Models
 {
+    using System.ComponentModel.DataAnnotations;
     using System.Security.Claims;
     using System.Threading.Tasks;
 
@@ -8,6 +9,20 @@
 
     public class User : IdentityUser
     {
+        [Required]
+        [MinLength(2)]
+        [MaxLength(20)]
+        public string FirstName { get; set; }
+
+        [Required]
+        [MinLength(2)]
+        [MaxLength(20)]
+        public string LastName { get; set; }
+        
+        public int TotalThreads { get; set; }
+
+        public int TotalPosts { get; set; }
+
         public ClaimsIdentity GenerateUserIdentity(UserManager<User> manager)
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
