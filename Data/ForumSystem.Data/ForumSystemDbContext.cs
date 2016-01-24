@@ -5,7 +5,7 @@
 
     using Models;
 
-    public class ForumSystemDbContext : IdentityDbContext<User>
+    public class ForumSystemDbContext : IdentityDbContext<User>, IForumSystemDbContext
     {
         public ForumSystemDbContext()
             : base("ForumSystemConnection", throwIfV1Schema: false)
