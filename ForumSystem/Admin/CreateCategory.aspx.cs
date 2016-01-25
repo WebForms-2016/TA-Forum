@@ -1,24 +1,18 @@
-﻿using ErrorHandlerControl;
-using ForumSystem.Models;
-using ForumSystem.Services.Data.Contracts;
-using ForumSystem.Services.Data.Enumerations;
-using Ninject;
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-
-namespace ForumSystem.Admin
+﻿namespace ForumSystem.Admin
 {
+    using System;
+    using System.Collections;
+    using System.Web.UI;
+    using Ninject;
+
+    using ErrorHandlerControl;
+    using ForumSystem.Models;
+    using ForumSystem.Services.Data.Contracts;
+
     public partial class CreateCategory : System.Web.UI.Page
     {
         [Inject]
         public ICategoriesService Categories { get; set; }
-
-        public Enumeration visibilities = new Enumeration();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -33,14 +27,26 @@ namespace ForumSystem.Admin
 
         protected void LinkButtonCreate_Click(object sender, EventArgs e)
         {
-            var category = new Category();
-
-            TryUpdateModel(category);
-            if (ModelState.IsValid)
+            if (string.IsNullOrWhiteSpace(this.TextBoxCategoryTitle.Text))
             {
-                this.Categories.Add(category);
-                Notifier.AddSuccessMessage("Category created.");
-            }            
+                Notifier.AddErrorMessage("Category title is required!");
+                return;
+            }
+
+            var visibility = this.DropDownVisibilities.SelectedIndex;
+            var newCategory = new Category()
+            {
+                Title = this.TextBoxCategoryTitle.Text,
+                Visibility = (Visibility)visibility
+            };
+
+            var id = this.Categories.Add(newCategory);
+
+            if (id != 0)
+            {
+                Notifier.AddSuccessMessage("Category was successfully created!");
+                Response.Redirect("~/Admin/EditCategories.aspx");
+            }
         }
 
         protected void LinkButtonClear_Click(object sender, EventArgs e)

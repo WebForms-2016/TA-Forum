@@ -9,13 +9,23 @@
             <h1>Edit Categories</h1>
         </div>
     </div>
+
     <div class="row">
-        <div class="col-md-18 col-offset-2">
+        <div class="col-md-12 text-center">
+            <asp:LinkButton ID="LinkButtonShowCreatePanel" runat="server"
+                Text="Create New" CssClass="btn btn-primary"
+                PostBackUrl="~/Admin/CreateCategory" />
+        </div>
+    </div>
+
+    <br />
+    <div class="row">
+        <div class="col-md-8 col-offset-2">
             <asp:GridView ID="GridViewCategories" runat="server" AutoGenerateColumns="false"
                 AllowSorting="true" AllowPaging="true" PageSize="5"
                 CssClass="table table-striped table-bordered" RowStyle-CssClass="td" HeaderStyle-CssClass="th"
                 ItemType="ForumSystem.Models.Category" DataKeyNames="Id"
-                SelectMethod="GridViewCategories_GetData" 
+                SelectMethod="GridViewCategories_GetData"
                 DeleteMethod="GridViewCategories_DeleteItem"
                 UpdateMethod="GridViewCategories_UpdateItem">
                 <Columns>
@@ -39,11 +49,6 @@
                     </asp:TemplateField>
                 </Columns>
             </asp:GridView>
-
-            <div class="create-link">
-                <asp:LinkButton ID="LinkButtonShowCreatePanel" runat="server"
-                    Text="Create New" CssClass="btn btn-primary"/>
-            </div>
 
         </div>
     </div>

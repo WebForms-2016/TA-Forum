@@ -13,15 +13,6 @@ namespace ForumSystem.Admin {
     public partial class EditCategories {
         
         /// <summary>
-        /// GridViewCategories control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridViewCategories;
-        
-        /// <summary>
         /// LinkButtonShowCreatePanel control.
         /// </summary>
         /// <remarks>
@@ -29,5 +20,14 @@ namespace ForumSystem.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton LinkButtonShowCreatePanel;
+        
+        /// <summary>
+        /// GridViewCategories control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView GridViewCategories;
     }
 }
