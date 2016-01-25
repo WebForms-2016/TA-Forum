@@ -10,6 +10,6 @@
 namespace ErrorHandlerControl {
     
     
-    public partial class ErrorNotifier {
+    public partial class Notifier {
     }
 }

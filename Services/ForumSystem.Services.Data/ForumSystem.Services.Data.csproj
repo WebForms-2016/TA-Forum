@@ -53,10 +53,6 @@
       <Project>{30bb35d3-576c-41a9-bef9-51b69f4a7f5e}</Project>
       <Name>ForumSystem.Models</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ForumSystem.Services.Common\ForumSystem.Services.Common.csproj">
-      <Project>{5e930e4b-588e-4144-aa07-cbb9f1e3eb23}</Project>
-      <Name>ForumSystem.Services.Common</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
