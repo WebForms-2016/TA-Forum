@@ -7,11 +7,13 @@
 
     public interface ICategoriesService
     {
-        int Add(string name, Visibility visibility);
+        int Add(string title, Visibility visibility);
 
-        bool Update(int id);
+        int Add(Category newCategory);
 
-        IQueryable<Category> GetAll(CategoryRequest request = null);
+        void Update();
+
+        IQueryable<Category> GetAll();
 
         IQueryable<Category> GetById(int id);
 

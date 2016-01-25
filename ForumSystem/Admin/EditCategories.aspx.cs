@@ -6,41 +6,42 @@
     using Ninject;
 
     using ErrorHandlerControl;
-    using Models.Categories;
     using Services.Data.Contracts;
     using Models;
 
     public partial class EditCategories : System.Web.UI.Page
     {
         [Inject]
-        public ICategoriesService categories { get; set; }
+        public ICategoriesService Categories { get; set; }
         
-
         public IQueryable<Category> GridViewCategories_GetData()
         {
-            return categories.GetAll();
+            return Categories.GetAll();
         }
 
         public void GridViewCategories_DeleteItem(int Id)
         {
-            this.categories.Delete(Id);
+            this.Categories.Delete(Id);
+            Notifier.AddSuccessMessage("Category was successfully deleted!");
         }
 
-        public void ListViewCategories_UpdateItem(int Id)
+        public void GridViewCategories_UpdateItem(int Id)
         {
-            if (!this.categories.Update(Id))
+            var categoryToBeUpdate = this.Categories.GetById(Id)
+                .FirstOrDefault();
+
+            if (categoryToBeUpdate == null)
             {
                 ModelState.AddModelError("", string.Format("Category with id {0} was not found", Id));
             }
-        }
 
-        //protected void LinkButtonEdit_Click(object sender, EventArgs e)
-        //{
-        //    this.PanelEdit.Visible = true;
-        //    this.PanelDelete.Visible = false;
-        //    this.PanelCreate.Visible = false;
-        //    this.LinkButtonShowCreatePanel.Visible = false;
-        //}
+            TryUpdateModel(categoryToBeUpdate);
+            if (ModelState.IsValid)
+            {
+                this.Categories.Update();
+                Notifier.AddSuccessMessage("Category was successfully modified!");
+            }
+        }
 
         //protected void LinkButtonEditSave_Click(object sender, EventArgs e)
         //{
@@ -97,11 +98,5 @@
         //        ErrorNotifier.AddErrorMessage("Category name cannot be empty.");
         //    }
         //}
-
-        protected void LinkButtonCancelCreate_Click(object sender, EventArgs e)
-        {
-            //this.PanelCreate.Visible = false;
-            //this.LinkButtonShowCreatePanel.Visible = true;
-        }
     }
 }

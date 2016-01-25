@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master"
+﻿<%@ Page Title="Edit Categories" Language="C#" MasterPageFile="~/Site.Master"
     AutoEventWireup="true" CodeBehind="EditCategories.aspx.cs"
     Inherits="ForumSystem.Admin.EditCategories" %>
 
@@ -15,10 +15,12 @@
                 AllowSorting="true" AllowPaging="true" PageSize="5"
                 CssClass="table table-striped table-bordered" RowStyle-CssClass="td" HeaderStyle-CssClass="th"
                 ItemType="ForumSystem.Models.Category" DataKeyNames="Id"
-                SelectMethod="GridViewCategories_GetData">
+                SelectMethod="GridViewCategories_GetData" 
+                DeleteMethod="GridViewCategories_DeleteItem"
+                UpdateMethod="GridViewCategories_UpdateItem">
                 <Columns>
-                    <asp:BoundField DataField="Name"
-                        HeaderText="Category Name" SortExpression="Id" />
+                    <asp:BoundField DataField="Title"
+                        HeaderText="Category Title" SortExpression="Id" />
                     <asp:BoundField DataField="Visibility"
                         HeaderText="Visibility" SortExpression="Visibility" />
                     <asp:TemplateField HeaderText="Action">
@@ -40,8 +42,7 @@
 
             <div class="create-link">
                 <asp:LinkButton ID="LinkButtonShowCreatePanel" runat="server"
-                    Text="Create New" CssClass="btn btn-primary"
-                    OnClick="LinkButtonShowCreatePanel_Click" />
+                    Text="Create New" CssClass="btn btn-primary"/>
             </div>
 
         </div>

@@ -17,11 +17,11 @@
             this.categories = categoriesRepository;
         }
         
-        public int Add(string name, Visibility visibility)
+        public int Add(string title, Visibility visibility)
         {
             var newCategory = new Category
             {
-                Name = name,
+                Title = title,
                 Visibility = visibility
             };
 
@@ -31,23 +31,20 @@
             return newCategory.Id;
         }
 
-        public bool Update(int id)
+        public int Add(Category newCategory)
         {
-            var categoryToBeUpdate = this.GetById(id)
-                .FirstOrDefault();
-
-            if(categoryToBeUpdate == null)
-            {
-                return false;
-            }
-
-            this.categories.Update(categoryToBeUpdate);
+            this.categories.Add(newCategory);
             this.categories.SaveChanges();
 
-            return true;
+            return newCategory.Id;
         }
 
-        public IQueryable<Category> GetAll(CategoryRequest request = null)
+        public void Update()
+        {
+            this.categories.SaveChanges();
+        }
+
+        public IQueryable<Category> GetAll()
         {
             var query = this.categories.All();
             
