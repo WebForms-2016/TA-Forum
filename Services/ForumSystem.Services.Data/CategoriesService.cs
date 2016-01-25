@@ -34,11 +34,11 @@
         public IQueryable<Category> GetAll(CategoryRequest request = null)
         {
             var query = this.categories.All();
-
+            
             return query
-                .OrderBy(c => c.Id)
-                .Skip((request.Page - 1) * request.PageSize)
-                .Take(request.PageSize);
+                .OrderBy(c => c.Id);
+                //.Skip((request.Page - 1) * request.PageSize)
+                //.Take(request.PageSize);
         }
 
         public IQueryable<Category> GetById(int id)

@@ -1,18 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-
-namespace ForumSystem.Admin
+﻿namespace ForumSystem.Admin
 {
+    using System;
+    using System.Linq;
+    using AutoMapper.QueryableExtensions;
+    using Ninject;
+
+    using ErrorHandlerControl;
+    using Models.Categories;
+    using Services.Data.Contracts;
+    using System.Collections.Generic;
     public partial class EditCategories : System.Web.UI.Page
     {
-        /*
-        public IQueryable<Category> GridViewCategories_GetData()
+        [Inject]
+        public ICategoriesService categories { get; set; }
+        
+
+        public IList<EditCategoriesResponseModel> GridViewCategories_GetData()
         {
-            return StaticData.Categories.AsQueryable<Category>();
+            return categories.GetAll()
+                .ProjectTo<EditCategoriesResponseModel>()
+                .ToList();
         }
 
         protected void LinkButtonEdit_Click(object sender, EventArgs e)
@@ -27,7 +34,7 @@ namespace ForumSystem.Admin
         {
             this.PanelEdit.Visible = false;
             this.LinkButtonShowCreatePanel.Visible = true;
-            ErrorSuccessNotifier.AddSuccessMessage("Category modified.");
+            ErrorNotifier.AddSuccessMessage("Category modified.");
         }
 
         protected void LinkButtonCancelEdit_Click(object sender, EventArgs e)
@@ -48,7 +55,7 @@ namespace ForumSystem.Admin
         {
             this.PanelDelete.Visible = false;
             this.LinkButtonShowCreatePanel.Visible = true;
-            ErrorSuccessNotifier.AddSuccessMessage("Category deleted.");
+            ErrorNotifier.AddSuccessMessage("Category deleted.");
         }
 
         protected void LinkButtonCancelDelete_Click(object sender, EventArgs e)
@@ -71,11 +78,11 @@ namespace ForumSystem.Admin
             this.LinkButtonShowCreatePanel.Visible = true;
             if (this.TextBoxCategoryCreate.Text != "")
             {
-                ErrorSuccessNotifier.AddSuccessMessage("Category created.");
+                ErrorNotifier.AddSuccessMessage("Category created.");
             }
             else
             {
-                ErrorSuccessNotifier.AddErrorMessage("Category name cannot be empty.");
+                ErrorNotifier.AddErrorMessage("Category name cannot be empty.");
             }
         }
 
@@ -84,6 +91,5 @@ namespace ForumSystem.Admin
             this.PanelCreate.Visible = false;
             this.LinkButtonShowCreatePanel.Visible = true;
         }
-        */
     }
 }

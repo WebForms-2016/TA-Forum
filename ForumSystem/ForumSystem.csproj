@@ -227,6 +227,14 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="Controls\ErrorNotifier\ErrorNotifier.ascx" />
+    <Content Include="Controls\ErrorNotifier\Images\error-icon.png" />
+    <Content Include="Controls\ErrorNotifier\Images\info-icon.png" />
+    <Content Include="Controls\ErrorNotifier\Images\success-icon.png" />
+    <Content Include="Controls\ErrorNotifier\Images\warning-icon.png" />
+    <Content Include="Controls\ErrorNotifier\Scripts\ErrorNotifier.js" />
+    <Content Include="Controls\ErrorNotifier\Scripts\jquery-1.3.2.js" />
+    <Content Include="Controls\ErrorNotifier\Styles\ErrorNotifier.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -421,6 +429,12 @@
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Controls\ErrorNotifier\ErrorNotifier.ascx.cs">
+      <DependentUpon>ErrorNotifier.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ErrorNotifier\ErrorNotifier.ascx.designer.cs">
+      <DependentUpon>ErrorNotifier.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -475,6 +489,14 @@
     <ProjectReference Include="..\ForumSystem.Common\ForumSystem.Common.csproj">
       <Project>{dd21ea0b-7b32-4958-b1e4-94ed71db7b7f}</Project>
       <Name>ForumSystem.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Services\ForumSystem.Services.Common\ForumSystem.Services.Common.csproj">
+      <Project>{5e930e4b-588e-4144-aa07-cbb9f1e3eb23}</Project>
+      <Name>ForumSystem.Services.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Services\ForumSystem.Services.Data\ForumSystem.Services.Data.csproj">
+      <Project>{d0d92ba9-b5f0-4c29-8867-105e6242a4e4}</Project>
+      <Name>ForumSystem.Services.Data</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

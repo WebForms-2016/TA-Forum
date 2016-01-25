@@ -12,7 +12,7 @@
         <div class="col-md-12">
             <asp:GridView ID="GridViewCategories" runat="server" AutoGenerateColumns="false"
                 AllowSorting="true" AllowPaging="true" PageSize="5" CssClass="gridview" 
-                ItemType="ForumSystem.Models.Category" DataKeyNames="CategoryId"
+                ItemType="ForumSystem.Models.Categories.EditCategoriesResponseModel" DataKeyNames="CategoryId"
                 SelectMethod="GridViewCategories_GetData">
                 <Columns>
                     <asp:BoundField DataField="CategoryName" 
@@ -21,11 +21,11 @@
                         <ItemTemplate>
                             <asp:LinkButton ID="LinkButtonEdit" runat="server" CssClass="link-button"
                                 Text="Edit" OnClick="LinkButtonEdit_Click"
-                                <%--CommandArgument="<%# Item.CategoryId %>"--%>
+                                CommandArgument="<%# Item.Id %>"
                                 />
                             <asp:LinkButton ID="LinkButtonDelete" runat="server" CssClass="link-button"
                                 Text="Delete" OnClick="LinkButtonDelete_Click"
-                                <%--CommandArgument="<%# Item.CategoryId %>"--%>
+                                CommandArgument="<%# Item.Id %>"
                                 />
                         </ItemTemplate>
                     </asp:TemplateField>

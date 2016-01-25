@@ -1,6 +1,9 @@
 namespace ForumSystem.Data.Migrations
 {
+    using Models;
+    using System.Collections.Generic;
     using System.Data.Entity.Migrations;
+    using System.Linq;
 
     public sealed class Configuration : DbMigrationsConfiguration<ForumSystemDbContext>
     {
@@ -10,20 +13,24 @@ namespace ForumSystem.Data.Migrations
             this.AutomaticMigrationDataLossAllowed = true;
         }
 
-        protected override void Seed(ForumSystem.Data.ForumSystemDbContext context)
+        protected override void Seed(ForumSystemDbContext context)
         {
-            //  This method will be called after migrating to the latest version.
+            if (context.Categories.Any())
+            {
+                return;
+            }
 
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
-            //  to avoid creating duplicate seed data. E.g.
-            //
-            //    context.People.AddOrUpdate(
-            //      p => p.FullName,
-            //      new Person { FullName = "Andrew Peters" },
-            //      new Person { FullName = "Brice Lambson" },
-            //      new Person { FullName = "Rowan Miller" }
-            //    );
-            //
+            IList<Category> categories = new List<Category>()
+            {
+                new Category() {Name = "Games", Visibility = Visibility.Public },
+                new Category() {Name = "Software", Visibility = Visibility.Public },
+                new Category() {Name = "Hardware", Visibility = Visibility.Public },
+                new Category() {Name = "Fun", Visibility = Visibility.Public },
+                new Category() {Name = "Music", Visibility = Visibility.Public },
+                new Category() {Name = "Movies", Visibility = Visibility.Public }
+            };
+
+            context.Categories.AddOrUpdate(categories.ToArray());
         }
     }
 }
