@@ -9,8 +9,12 @@
     {
         int Add(string name, Visibility visibility);
 
+        bool Update(int id);
+
         IQueryable<Category> GetAll(CategoryRequest request = null);
 
         IQueryable<Category> GetById(int id);
+
+        void Delete(int id);
     }
 }

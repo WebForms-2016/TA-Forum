@@ -31,6 +31,22 @@
             return newCategory.Id;
         }
 
+        public bool Update(int id)
+        {
+            var categoryToBeUpdate = this.GetById(id)
+                .FirstOrDefault();
+
+            if(categoryToBeUpdate == null)
+            {
+                return false;
+            }
+
+            this.categories.Update(categoryToBeUpdate);
+            this.categories.SaveChanges();
+
+            return true;
+        }
+
         public IQueryable<Category> GetAll(CategoryRequest request = null)
         {
             var query = this.categories.All();
@@ -46,6 +62,13 @@
             return this.categories
                 .All()
                 .Where(c => c.Id == id);
+        }
+
+        public void Delete(int id)
+        {
+            var categoryToBeDelete = this.GetById(id);
+            this.categories.Delete(categoryToBeDelete);
+            this.categories.SaveChanges();
         }
     }
 }
