@@ -3,7 +3,6 @@
     using System.Linq;
 
     using ForumSystem.Models;
-    using ForumSystem.Services.Common;
 
     public interface ICategoriesService
     {

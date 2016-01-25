@@ -20,7 +20,7 @@
 
     <br />
     <div class="row">
-        <div class="col-md-8 col-offset-2">
+        <div class="col-md-8 col-md-offset-2">
             <asp:GridView ID="GridViewCategories" runat="server" AutoGenerateColumns="false"
                 AllowSorting="true" AllowPaging="true" PageSize="5"
                 CssClass="table table-striped table-bordered" RowStyle-CssClass="td" HeaderStyle-CssClass="th"
@@ -31,8 +31,23 @@
                 <Columns>
                     <asp:BoundField DataField="Title"
                         HeaderText="Category Title" SortExpression="Id" />
-                    <asp:BoundField DataField="Visibility"
-                        HeaderText="Visibility" SortExpression="Visibility" />
+                    <%--<asp:BoundField DataField="Visibility"
+                        HeaderText="Visibility" SortExpression="Visibility" />--%>
+                    <asp:TemplateField HeaderText="Visibility">
+                        <ItemTemplate>
+                            <asp:Label runat="server" ID="LabelCategoryVisibility"
+                                Text="<%# Item.Visibility %>" />
+                        </ItemTemplate>
+                        <EditItemTemplate>
+                            <asp:DropDownList runat="server" ID="DropDownListVisibility"
+                                DataTextField="Visibility" DataValueField="Visibility">
+                                <asp:ListItem Value="Public">Public</asp:ListItem>
+                                <asp:ListItem Value="RegisteredUser">Registered User</asp:ListItem>
+                                <asp:ListItem Value="Moderator">Moderator</asp:ListItem>
+                                <asp:ListItem Value="Administrator">Administrator</asp:ListItem>
+                            </asp:DropDownList>
+                        </EditItemTemplate>
+                    </asp:TemplateField>
                     <asp:TemplateField HeaderText="Action">
                         <ItemTemplate>
                             <asp:LinkButton runat="server" ID="LinkButtonEdit"

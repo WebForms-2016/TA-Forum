@@ -1,4 +1,8 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="ForumSystem.SiteMaster" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" 
+    Inherits="ForumSystem.SiteMaster" %>
+
+<%@ Register Src="~/Controls/Notifier/Notifier.ascx" 
+    TagPrefix="userControls" TagName="Notifier" %>
 
 <!DOCTYPE html>
 
@@ -77,6 +81,9 @@
         </header>
 
         <div class="container">
+
+            <userControls:Notifier runat="server" id="Notifier" />
+
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
 

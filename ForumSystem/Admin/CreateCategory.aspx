@@ -10,8 +10,8 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-md-8 col-offset-2">
-            <asp:Panel ID="PanelCreate" runat="server" CssClass="form-horizontal">                
+        <div class="col-md-8 col-md-offset-2">
+            <asp:Panel ID="PanelCreate" runat="server" CssClass="form-horizontal">
                 <div class="form-group">
                     <label>Title</label>
                     <asp:TextBox ID="TextBoxCategoryTitle" runat="server"
@@ -19,17 +19,19 @@
                         CssClass="form-control" />
                 </div>
                 <div class="form-group">
-                    <label>Category:</label>
+                    <label>Visibility:</label>
                     <asp:DropDownList ID="DropDownVisibilities" runat="server"
                         DataTextField="Value" DataValueField="Key"
                         CssClass="form-control" />
                 </div>
-                <asp:LinkButton ID="LinkButtonCreate" runat="server"
-                    Text="Create" CssClass="btn btn-success"
-                    OnClick="LinkButtonCreate_Click" />
-                <asp:LinkButton ID="LinkButtonClear" runat="server"
-                    Text="Clear" CssClass="btn btn-default"
-                    OnClick="LinkButtonClear_Click" />
+                <div class="text-center">
+                    <asp:LinkButton ID="LinkButtonCreate" runat="server"
+                        Text="Create" CssClass="btn btn-success"
+                        OnClick="LinkButtonCreate_Click" />
+                    <asp:LinkButton ID="LinkButtonClear" runat="server"
+                        Text="Clear" CssClass="btn btn-default"
+                        OnClick="LinkButtonClear_Click" />
+                </div>
             </asp:Panel>
         </div>
     </div>
